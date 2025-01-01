@@ -1,20 +1,16 @@
-import bcrypt from 'bcrypt';
 import User from '../models/user';
 import { generateToken } from '../utility/utils';
-
-export const loginService = async (email: string, password: string) => {
+export const loginService = async (email: string, hashedPassword: string) => {
 
   // Find user by email
   const user = await User.findOne({ where: { email } });
   if (!user) {
     throw new Error('User not found');
   }
-
+  console.log(user, 'user', hashedPassword);
   // Check if the password is correct
-  const isMatch = await bcrypt.compare(password, user.password);
-  console.log(password, user.password,"isMatch :",isMatch);
-  if (!isMatch) {
-    throw new Error('Invalid password');
+  if (user.password !== hashedPassword) {
+    throw new Error('Invalid credentials');
   }
 
   // Generate JWT token

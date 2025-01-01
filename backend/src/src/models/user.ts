@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/db";
-import Products from "./products";
 class User extends Model {
   public id!: number;
   public name!: string;
@@ -33,7 +32,8 @@ User.init(
   },
   {
     sequelize,
-    tableName: "users",
+    tableName: "User",
+    modelName: "User",
   }
 );
 

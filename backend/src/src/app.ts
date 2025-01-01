@@ -4,13 +4,19 @@ import sequelize from './config/db'; // Sequelize config
 import authRoutes from './routes/auth.routes';
 import cors from 'cors';
 dotenv.config();
+import Products from '../src/models/products';
+
+import User from '../src/models/user';
+
+const models = [User, Products];
+
 import productRoutes from './routes/products.routes';
 
 const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: 'http://localhost:5173', // Allow requests from the frontend
+    origin: 'http://localhost:4200', // Allow requests from the frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Allow cookies and authorization headers
   })

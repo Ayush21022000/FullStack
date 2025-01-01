@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { loginService } from '../services/auth';
-import bcrypt from 'bcrypt';
 import User from '../models/user';
 export const loginController = async (req: Request, res: Response) => {
   try {
@@ -14,12 +13,13 @@ export const loginController = async (req: Request, res: Response) => {
   }
 };
 export const signUpController=async (req:Request,res:Response)=>{
+  // console.log(req.body);
   try {
     const {name,email, password } = req.body;
     
-    const hashedPassword = await bcrypt.hash(password, 12);
+    // const hashedPassword = await bcrypt.hash(password, 12);
 
-    const user = await User.create({ name, email, password: hashedPassword });
+    const user = await User.create({ name, email, password });
 
     res.status(201).json({ message: 'User created successfully', user });
 
