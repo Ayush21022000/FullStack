@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import * as bcrypt from 'bcryptjs'; // Import bcryptjs
-import * as CryptoJS from 'crypto-js'; // Import CryptoJS
+import * as CryptoJS from 'crypto-js'; 
 
 @Component({
   selector: 'app-login',
