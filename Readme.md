@@ -15,7 +15,6 @@ Backend: Node.js, Express.js
 Database : PostgreSQL
 Additional Libraries/Tools :-
 CryptoJS (Password hashing)
-bcryptjs (Password comparison)
 JWT (Authentication tokens)
 CORS Middleware (Cross-Origin Resource Sharing)
 
