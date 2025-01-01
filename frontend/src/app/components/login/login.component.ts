@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import * as CryptoJS from 'crypto-js'; 
+import * as CryptoJS from 'crypto-js'; //used to hash password
 
 @Component({
   selector: 'app-login',
