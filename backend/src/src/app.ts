@@ -4,13 +4,11 @@ import sequelize from './config/db'; // Sequelize config
 import authRoutes from './routes/auth.routes';
 import cors from 'cors';
 dotenv.config();
-import Products from '../src/models/products';
 
 import User from '../src/models/user';
 
-const models = [User, Products];
+const models = [User];
 
-import productRoutes from './routes/products.routes';
 
 const app = express();
 app.use(express.json());
@@ -23,7 +21,6 @@ app.use(
 );
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/products',productRoutes );
 // Sync database and start server
 const startServer = async () => {
   try {

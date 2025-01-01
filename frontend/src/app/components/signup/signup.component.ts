@@ -4,7 +4,7 @@ import { ReactiveFormsModule,FormsModule,FormGroup, FormBuilder, Validators } fr
 import { LoginService } from '../../services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import * as CryptoJS from 'crypto-js'; // Import CryptoJS
+import * as CryptoJS from 'crypto-js'; 
 
 
 @Component({
@@ -27,9 +27,7 @@ export class SignupComponent {
 
   async onSubmit() {
     const formData = this.signupForm.value;
-    // console.log('Form Data:', formData);
     if (this.signupForm.valid) {
-      // console.log('Signup Form Data:', this.signupForm.value);
       alert('Signup successful!');
     } else {
       alert('Please fill out the form correctly.');

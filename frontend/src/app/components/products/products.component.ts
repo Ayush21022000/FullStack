@@ -16,8 +16,8 @@ export class ProductsComponent {
   categories: string[] = [];
   selectedCategories: Set<string> = new Set();
   searchControl = new FormControl('');
-  selectedProduct: any | null = null; // This will hold the product selected for the modal
-  loading = true; // Added loading state
+  selectedProduct: any | null = null; 
+  loading = true; 
   loadingModal = true;
 
   constructor(private http: HttpClient) {}
@@ -32,7 +32,7 @@ export class ProductsComponent {
   }
 
   fetchProducts(): void {
-    const apiUrl = 'https://fakestoreapi.com/products'; // Replace with your API
+    const apiUrl = 'https://fakestoreapi.com/products'; 
     this.http.get<any[]>(apiUrl).subscribe((data) => {
       this.products = data.map((item: any, index) => ({
         id: item.id,
@@ -53,7 +53,6 @@ export class ProductsComponent {
   }
 
   toggleCategory(category: string, event: Event): void {
-    // console.log(category);
     if (category == 'men') {
       category = "men's clothing";
     }
@@ -85,18 +84,16 @@ export class ProductsComponent {
   }
   viewDetails(product: any): void {
     this.loadingModal = true;
-    // console.log(product, 'product');
     this.selectedProduct = product;
     const selectedProductId = product.id;
-    const apiUrl = `https://fakestoreapi.com/products/${selectedProductId}`; // Replace with your API
+    const apiUrl = `https://fakestoreapi.com/products/${selectedProductId}`;
     this.http.get<any[]>(apiUrl).subscribe((data) => {
-      // console.log(data);
       this.selectedProduct = data;
       this.loadingModal = false;
     });
   }
 
   closeModal(): void {
-    this.selectedProduct = null; // Close the modal
+    this.selectedProduct = null; 
   }
 }

@@ -26,7 +26,6 @@ export class LoginComponent {
   async onSubmit() {
     const formData = this.loginForm.value;
     if (this.loginForm.valid) {
-      // console.log('Login Form Data:', this.loginForm.value);
       alert('Login successful!');
     } else {
       alert('Please fill out the form correctly.');

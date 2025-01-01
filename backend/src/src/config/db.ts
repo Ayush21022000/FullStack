@@ -17,7 +17,7 @@ const sequelize = new Sequelize({
 
 const syncDatabase = async () => {
   try {
-    await sequelize.sync({ alter: true }); // Use { force: true } only during development
+    await sequelize.sync({ alter: true }); 
     console.log('Database synced successfully!');
   } catch (error) {
     console.error('Error syncing database:', error);

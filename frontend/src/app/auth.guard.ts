@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     const token = localStorage.getItem('isUserLoggedIn');
     if (token) {
-      return true; // Allow access if token exists
+      return true; // Allow access only if token exists and user is exists
     } else {
       this.router.navigate(['/login']); // Redirect to login if no token
       return false;

@@ -4,7 +4,6 @@ import User from '../models/user';
 export const loginController = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    // console.log(req.body,'value');
     const { token } = await loginService(email, password);
 
     res.json({ message: 'Login successful', token });
@@ -13,7 +12,6 @@ export const loginController = async (req: Request, res: Response) => {
   }
 };
 export const signUpController=async (req:Request,res:Response)=>{
-  // console.log(req.body);
   try {
     const {name,email, password } = req.body;
     

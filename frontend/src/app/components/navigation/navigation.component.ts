@@ -19,7 +19,6 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     const isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
-    // console.log(isUserLoggedIn);
     if (isUserLoggedIn==='true') {
       this.userLoggedIn = true;
     }
@@ -29,7 +28,6 @@ export class NavigationComponent implements OnInit {
     }
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // console.log(event.url);
         if(event.url==='/login' ||event.url==='/signup'){
           this.isLogoutButtonVisible=false;
         }else{  
@@ -58,7 +56,7 @@ export class NavigationComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
-  // Logout and redirect to login page
+  // Logout and redirect to login page using this below function
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
